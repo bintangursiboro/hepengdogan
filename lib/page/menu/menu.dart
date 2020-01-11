@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Menu extends StatefulWidget {
+  static const String PATH = '/menu';
+
   @override
   State<StatefulWidget> createState() {
     return _MenuState();

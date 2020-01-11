@@ -1,4 +1,4 @@
-import 'package:contact_app/page/landing/landing.dart';
+import 'package:contact_app/page/menu/menu.dart';
 import 'package:flutter/material.dart';
 
 class Routes extends StatelessWidget {
@@ -15,9 +15,9 @@ class Routes extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey,
-      initialRoute: Landing.PATH,
+      initialRoute: Menu.PATH,
       routes: <String, WidgetBuilder>{
-        Landing.PATH: (_) => Landing(initialWidget: initialWidget),
+        Menu.PATH: (_) => Menu(),
       },
       title: 'Uang Teman Challenge',
     );
