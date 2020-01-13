@@ -13,3 +13,10 @@ class NetworkModel {
     @required this.error,
   });
 }
+
+class DataModel {
+  String message;
+  Map<String, dynamic> data;
+
+  DataModel({this.data, this.message});
+}
