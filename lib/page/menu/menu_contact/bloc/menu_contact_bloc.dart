@@ -18,7 +18,9 @@ class MenuContactBloc extends Bloc<MenuContactEvent, MenuContactState> {
       try {
         print('calling service');
         yield await service.getContacts().then((jsonResponse) {
-          return MenuContactLoaded(listOfContact: jsonResponse);
+          print('Lengt of list: ${jsonResponse.listContactModel.length}');
+          return MenuContactLoaded(
+              listOfContact: jsonResponse.listContactModel);
         });
       } on UnexpectedErrorException catch (_) {
         yield MenuContactError();

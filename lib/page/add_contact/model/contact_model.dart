@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class ContactModel {
   String firstName;
   String lastName;
@@ -25,5 +23,17 @@ class ContactModel {
   static List<ContactModel> toList(Map<String, dynamic> json) {
     return List<ContactModel>.from(
         json['data'].map((x) => ContactModel.fromJson(x)));
+  }
+}
+
+class ContactModelResponse {
+  String message;
+  List<ContactModel> listContactModel;
+
+  ContactModelResponse.fromJson(Map<String, dynamic> jsonResponse) {
+    if (jsonResponse['message'] != null) this.message = jsonResponse['message'];
+    if (jsonResponse['data'] != null)
+      this.listContactModel =
+          List.from(jsonResponse['data'].map((x) => ContactModel.fromJson(x)));
   }
 }
