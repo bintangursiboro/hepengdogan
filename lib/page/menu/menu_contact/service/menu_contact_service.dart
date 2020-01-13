@@ -18,4 +18,13 @@ class MenuContactService {
       throw UnexpectedErrorException();
     });
   }
+
+  Future<bool> deleteContact(String id) async {
+    return await networkInterface.requestDelete(id).then((jsonResponse) {
+      if (jsonResponse.code == 202) {
+        return true;
+      }
+      return false;
+    });
+  }
 }

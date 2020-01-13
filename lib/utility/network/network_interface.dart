@@ -21,13 +21,24 @@ class NetworkInterface {
   }
 
   Future<NetworkModel> requestPost(
-      {String baseUrl, String path, Map<String, dynamic> parameter}) async {
-    if (baseUrl == null) baseUrl = 'https://simple-contact-crud.herokuapp.com/';
+      {String path, Map<String, dynamic> parameter}) async {
+    String baseUrl = 'https://simple-contact-crud.herokuapp.com/';
     return await dio.post("$baseUrl$path").then((jsonResponse) {
       return NetworkModel(
           code: jsonResponse.statusCode,
           error: '',
           response: jsonResponse.data);
+    });
+  }
+
+  Future<NetworkModel> requestDelete(String path) async {
+    String baseUrl = 'https://simple-contact-crud.herokuapp.com/contact/';
+    return dio.delete("$baseUrl$path").then((jsonResponse) {
+      return NetworkModel(
+        code: jsonResponse.statusCode,
+        response: jsonResponse.data,
+        error: '',
+      );
     });
   }
 }
