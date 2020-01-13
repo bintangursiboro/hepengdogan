@@ -1,17 +1,18 @@
 import 'package:contact_app/page/add_contact/model/contact_model.dart';
+import 'package:contact_app/page/menu/menu_contact/menu_item/menu_item_view.dart';
 import 'package:flutter/material.dart';
 
 class MenuContactView extends StatelessWidget {
   final List<ContactModel> listContactModel;
   final VoidCallback addContact;
-  final VoidCallback showOptions;
   final bool isLoading;
+  final Function(String) onDeleteItem;
 
   MenuContactView({
     this.isLoading,
     this.addContact,
     this.listContactModel,
-    this.showOptions,
+    this.onDeleteItem,
   });
 
   @override
@@ -19,7 +20,10 @@ class MenuContactView extends StatelessWidget {
     return Scaffold(
       body: ListView.builder(
         itemBuilder: (BuildContext context, int index) {
-          return Container();
+          return MenuItemView(
+            onDeleteItem: onDeleteItem,
+            contactModel: listContactModel[index],
+          );
         },
         itemCount: listContactModel.length,
       ),

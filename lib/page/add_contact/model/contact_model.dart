@@ -3,6 +3,7 @@ class ContactModel {
   String lastName;
   int age;
   String photo;
+  String id;
 
   static Map<String, dynamic> toJson(ContactModel model) {
     return {
@@ -18,6 +19,7 @@ class ContactModel {
     if (json['lastName'] != null) this.lastName = json['lastName'] ?? '';
     if (json['age'] != null) this.age = json['age'] ?? 0;
     if (json['photo'] != null) this.photo = json['photo'] ?? '';
+    if (json['id'] != null) this.id = json['id'] ?? '';
   }
 
   static List<ContactModel> toList(Map<String, dynamic> json) {

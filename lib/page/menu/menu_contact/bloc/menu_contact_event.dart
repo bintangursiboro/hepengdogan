@@ -5,3 +5,8 @@ abstract class MenuContactEvent extends Equatable {
 }
 
 class GetMenuContact extends MenuContactEvent {}
+
+class DeleteContact extends MenuContactEvent {
+  String id;
+  DeleteContact({this.id});
+}

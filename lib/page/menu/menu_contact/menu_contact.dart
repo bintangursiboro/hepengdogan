@@ -33,7 +33,7 @@ class _MenuContactState extends State<MenuContact> {
           addContact: addContact,
           listContactModel:
               (state is MenuContactLoaded) ? state.listOfContact : [],
-          showOptions: () {},
+          onDeleteItem: onDeleteItem,
         );
       },
     );
@@ -44,4 +44,8 @@ class _MenuContactState extends State<MenuContact> {
         .getNavigationKeyHelper()
         .navigateToNamed(AddContact.PATH);
   };
+
+  void onDeleteItem(String id) {
+    _bloc.add(DeleteContact(id: id));
+  }
 }

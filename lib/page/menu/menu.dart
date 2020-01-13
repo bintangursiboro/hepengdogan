@@ -35,9 +35,23 @@ class _MenuState extends State<Menu> {
         type: BottomNavigationBarType.shifting,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(Icons.perm_identity), title: Text('Contact')),
+              icon: Icon(
+                Icons.perm_identity,
+                color: Colors.blue,
+              ),
+              title: Text(
+                'Contact',
+                style: TextStyle(color: Colors.blue),
+              )),
           BottomNavigationBarItem(
-              icon: Icon(Icons.map), title: Text('Contact Map')),
+              icon: Icon(
+                Icons.map,
+                color: Colors.blue,
+              ),
+              title: Text(
+                'Contact Map',
+                style: TextStyle(color: Colors.blue),
+              )),
         ],
         onTap: (index) {
           onClickBottomNav(index);
