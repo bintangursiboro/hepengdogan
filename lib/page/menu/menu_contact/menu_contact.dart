@@ -1,5 +1,11 @@
+import 'package:contact_app/page/add_contact/add_contact.dart';
+import 'package:contact_app/page/menu/menu_contact/bloc/menu_contact_bloc.dart';
+import 'package:contact_app/page/menu/menu_contact/bloc/menu_contact_event.dart';
+import 'package:contact_app/page/menu/menu_contact/bloc/menu_contact_state.dart';
 import 'package:contact_app/page/menu/menu_contact/menu_contact_view.dart';
+import 'package:contact_app/utility/di/injector_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MenuContact extends StatefulWidget {
   @override
@@ -9,12 +15,33 @@ class MenuContact extends StatefulWidget {
 }
 
 class _MenuContactState extends State<MenuContact> {
+  MenuContactBloc _bloc;
+
+  @override
+  void initState() {
+    _bloc = MenuContactBloc();
+    _bloc.add(GetMenuContact());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MenuContactView(
-      addContact: () {},
-      listContactModel: [],
-      showOptions: () {},
+    return BlocBuilder(
+      bloc: _bloc,
+      builder: (BuildContext context, MenuContactState state) {
+        return MenuContactView(
+          addContact: addContact,
+          listContactModel:
+              (state is MenuContactLoaded) ? state.listOfContact : [],
+          showOptions: () {},
+        );
+      },
     );
   }
+
+  VoidCallback addContact = () {
+    InjectorContainer()
+        .getNavigationKeyHelper()
+        .navigateToNamed(AddContact.PATH);
+  };
 }

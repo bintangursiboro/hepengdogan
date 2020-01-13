@@ -12,6 +12,7 @@ class NetworkInterface {
     return await dio
         .get("$baseUrl$path", queryParameters: parameter)
         .then((jsonResponse) {
+      print('${jsonResponse.data}');
       return NetworkModel(
           code: jsonResponse.statusCode,
           error: '',

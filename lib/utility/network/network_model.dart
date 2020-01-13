@@ -19,4 +19,9 @@ class DataModel {
   Map<String, dynamic> data;
 
   DataModel({this.data, this.message});
+
+  DataModel.fromJson(Map<String, dynamic> jsonResponse) {
+    if (jsonResponse['message'] != null) this.message = jsonResponse['message'];
+    if (jsonResponse['data'] != null) this.data = jsonResponse['data'];
+  }
 }

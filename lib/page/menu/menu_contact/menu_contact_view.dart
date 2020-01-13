@@ -5,8 +5,10 @@ class MenuContactView extends StatelessWidget {
   final List<ContactModel> listContactModel;
   final VoidCallback addContact;
   final VoidCallback showOptions;
+  final bool isLoading;
 
   MenuContactView({
+    this.isLoading,
     this.addContact,
     this.listContactModel,
     this.showOptions,
