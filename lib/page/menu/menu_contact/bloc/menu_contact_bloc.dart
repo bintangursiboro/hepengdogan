@@ -32,7 +32,7 @@ class MenuContactBloc extends Bloc<MenuContactEvent, MenuContactState> {
       try {
         yield await service.deleteContact(event.id).then((jsonResponse) {
           if (jsonResponse) {
-            return MenuContactLoaded();
+            return MenuContactReload();
           }
           return MenuContactError();
         });

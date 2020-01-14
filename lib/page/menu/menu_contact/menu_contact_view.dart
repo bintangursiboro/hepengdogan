@@ -19,15 +19,18 @@ class MenuContactView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: (isLoading)
-          ? Center(
-              child: Column(
-                children: <Widget>[
-                  CircularProgressIndicator(),
-                  Text(
-                    'Loading data..',
-                    style: TextStyle(color: Colors.blue),
-                  ),
-                ],
+          ? Container(
+              margin: EdgeInsets.only(top: 10),
+              child: Center(
+                child: Column(
+                  children: <Widget>[
+                    CircularProgressIndicator(),
+                    Text(
+                      'Loading data..',
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ],
+                ),
               ),
             )
           : ListView.builder(
