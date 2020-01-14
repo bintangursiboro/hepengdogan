@@ -5,6 +5,8 @@ class ContactModel {
   String photo;
   String id;
 
+  ContactModel({this.age, this.firstName, this.lastName, this.photo});
+
   static Map<String, dynamic> toJson(ContactModel model) {
     return {
       'firstName': model.firstName,

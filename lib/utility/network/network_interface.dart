@@ -23,7 +23,8 @@ class NetworkInterface {
   Future<NetworkModel> requestPost(
       {String path, Map<String, dynamic> parameter}) async {
     String baseUrl = 'https://simple-contact-crud.herokuapp.com/';
-    return await dio.post("$baseUrl$path").then((jsonResponse) {
+    FormData formData = FormData.fromMap(parameter);
+    return await dio.post("$baseUrl$path", data: formData).then((jsonResponse) {
       return NetworkModel(
           code: jsonResponse.statusCode,
           error: '',

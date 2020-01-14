@@ -12,3 +12,5 @@ class AddContactError extends AddContactState {
 }
 
 class AddContactInitial extends AddContactState {}
+
+class AddContactLoading extends AddContactState {}
