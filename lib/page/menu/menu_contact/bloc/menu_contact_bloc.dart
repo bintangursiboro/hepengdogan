@@ -26,5 +26,19 @@ class MenuContactBloc extends Bloc<MenuContactEvent, MenuContactState> {
         yield MenuContactError();
       }
     }
+
+    if (event is DeleteContact) {
+      yield MenuContactLoading();
+      try {
+        yield await service.deleteContact(event.id).then((jsonResponse) {
+          if (jsonResponse) {
+            return MenuContactLoaded();
+          }
+          return MenuContactError();
+        });
+      } on UnexpectedErrorException catch (_) {
+        yield MenuContactError();
+      }
+    }
   }
 }

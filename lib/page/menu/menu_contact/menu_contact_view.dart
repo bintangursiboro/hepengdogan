@@ -18,15 +18,27 @@ class MenuContactView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          return MenuItemView(
-            onDeleteItem: onDeleteItem,
-            contactModel: listContactModel[index],
-          );
-        },
-        itemCount: listContactModel.length,
-      ),
+      body: (isLoading)
+          ? Center(
+              child: Column(
+                children: <Widget>[
+                  CircularProgressIndicator(),
+                  Text(
+                    'Loading data..',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ],
+              ),
+            )
+          : ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
+                return MenuItemView(
+                  onDeleteItem: onDeleteItem,
+                  contactModel: listContactModel[index],
+                );
+              },
+              itemCount: listContactModel.length,
+            ),
       floatingActionButton: FloatingActionButton(
         onPressed: addContact,
         child: Icon(Icons.add),

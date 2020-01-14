@@ -1,4 +1,5 @@
 import 'package:contact_app/page/menu/menu_contact/menu_contact.dart';
+import 'package:contact_app/page/menu/menu_map/menu_map.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatefulWidget {
@@ -21,9 +22,10 @@ class _MenuState extends State<Menu> {
         title: Text('Uang Teman Mobile Challange'),
       ),
       body: PageView(
+        physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
           MenuContact(),
-          Container(),
+          MenuMap(),
         ],
         controller: _pageController,
         onPageChanged: (index) {

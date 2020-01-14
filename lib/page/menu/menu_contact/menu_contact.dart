@@ -26,15 +26,25 @@ class _MenuContactState extends State<MenuContact> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder(
+    return BlocListener(
       bloc: _bloc,
-      builder: (BuildContext context, MenuContactState state) {
-        return MenuContactView(
-          addContact: addContact,
-          listContactModel:
-              (state is MenuContactLoaded) ? state.listOfContact : [],
-          onDeleteItem: onDeleteItem,
-        );
+      child: BlocBuilder(
+        bloc: _bloc,
+        builder: (BuildContext context, MenuContactState state) {
+          return MenuContactView(
+            addContact: addContact,
+            listContactModel:
+                (state is MenuContactLoaded) ? state.listOfContact : [],
+            onDeleteItem: onDeleteItem,
+            isLoading: (state is MenuContactLoading),
+          );
+        },
+      ),
+      listener: (BuildContext context, MenuContactState state) {
+        if (state is MenuContactReload) {
+          print('called');
+          _bloc.add(GetMenuContact());
+        }
       },
     );
   }
@@ -46,6 +56,13 @@ class _MenuContactState extends State<MenuContact> {
   };
 
   void onDeleteItem(String id) {
+    print('delete id: $id');
     _bloc.add(DeleteContact(id: id));
+  }
+
+  @override
+  void dispose() {
+    _bloc.close();
+    super.dispose();
   }
 }

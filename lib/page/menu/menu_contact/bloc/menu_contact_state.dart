@@ -15,3 +15,5 @@ class MenuContactLoading extends MenuContactState {}
 class MenuContactError extends MenuContactState {}
 
 class MenuContactInitial extends MenuContactState {}
+
+class MenuContactReload extends MenuContactState {}
