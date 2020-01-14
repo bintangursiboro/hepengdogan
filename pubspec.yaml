@@ -35,7 +35,8 @@ dev_dependencies:
   equatable: ^0.2.0
   location: ^2.3.5
   google_maps_flutter: ^0.5.21+15
-  flutter_polyline_points: ^0.1.0
+  google_map_polyline: ^0.2.0+1
+  permission: ^0.1.5
   
 
 

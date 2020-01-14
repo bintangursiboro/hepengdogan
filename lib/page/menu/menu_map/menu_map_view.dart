@@ -3,9 +3,12 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MenuMapView extends StatelessWidget {
   final Function(GoogleMapController) onMapCreated;
+  final Set<Polyline> setPolyline;
+  // final GoogleMapController controller = GoogleMapController.init(id, initialCameraPosition, googleMapState);
 
   MenuMapView({
     this.onMapCreated,
+    this.setPolyline,
   });
 
   @override
@@ -14,10 +17,12 @@ class MenuMapView extends StatelessWidget {
       children: <Widget>[
         GoogleMap(
           initialCameraPosition: CameraPosition(
-            target: LatLng(24.142, -110.321),
+            target: LatLng(40.6782, -73.9442),
             zoom: 15,
           ),
-          // myLocationEnabled: true,
+          polylines: setPolyline,
+          onMapCreated: onMapCreated,
+          myLocationEnabled: true,
         )
       ],
     );

@@ -97,18 +97,18 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
-  flutter_polyline_points:
-    dependency: "direct dev"
-    description:
-      name: flutter_polyline_points
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
+  google_map_polyline:
+    dependency: "direct dev"
+    description:
+      name: google_map_polyline
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0+1"
   google_maps_flutter:
     dependency: "direct dev"
     description:
@@ -116,13 +116,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.5.21+15"
-  http:
-    dependency: transitive
-    description:
-      name: http
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.12.0+4"
   http_parser:
     dependency: transitive
     description:
@@ -186,6 +179,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0+1"
+  permission:
+    dependency: "direct dev"
+    description:
+      name: permission
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.5"
   petitparser:
     dependency: transitive
     description:
