@@ -27,7 +27,10 @@ class MenuMapView extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     CircularProgressIndicator(),
-                    Text('Loading Map'),
+                    Text(
+                      'Loading Map...',
+                      style: TextStyle(color: Colors.blue),
+                    ),
                   ],
                 ),
               )

@@ -16,14 +16,14 @@ class NewButton extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: const <Widget>[
             Icon(
-              Icons.face,
+              Icons.save,
               color: Colors.white,
             ),
             SizedBox(
               width: 10.0,
             ),
             Text(
-              "Tap Me",
+              "Save",
               maxLines: 1,
               style: TextStyle(color: Colors.white),
             ),
